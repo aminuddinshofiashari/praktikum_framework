@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FakultasController;
 use App\Http\Controllers\ProdiController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PendaftaranController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -73,3 +75,16 @@ Route::middleware(['auth:sanctum', 'universitas'])->post('/prodi/update/{id}',
 [ProdiController::class,'update']);
 Route::middleware(['auth:sanctum', 'universitas'])->post('/prodi/destroy/{id}',
 [ProdiController::class,'destroy']);
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+   ])->group(function () {
+    Route::get('/dashboard', 
+    [DashboardController::class, 'index'])
+    ->name('dashboard');
+   });
+
+Route::middleware(['auth:sanctum'])->get('/pendaftaran/create', [PendaftaranController::class,'create']);
+Route::middleware(['auth:sanctum'])->post('/pendaftaran/store', [PendaftaranController::class,'store']);
