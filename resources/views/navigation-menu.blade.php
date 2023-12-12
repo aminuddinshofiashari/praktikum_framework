@@ -13,14 +13,20 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @if(Auth::user()->role=='UNIVERSITAS')
-                    <x-jet-nav-link href="{{ url('/user')}}">
-                        {{ __('user') }}
+                    <x-jet-nav-link href="{{ url('/dashboard')}}" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ url('/user')}}" :active="request()->routeIs('user')">
+                        {{ __('User') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ url('/fakultas') }}" :active="request()->routeIs('fakultas')">
                         {{ __('Fakultas') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ url('/prodi') }}" :active="Str::contains(request()->url(), 'prodi')">
                         {{ __('Prodi') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ url('/pendaftaran') }}" :active="Str::contains(request()->url(), 'pendaftaran')">
+                        {{ __('Pendaftaran') }}
                     </x-jet-nav-link>
                     @endif
                 </div>

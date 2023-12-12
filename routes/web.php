@@ -76,15 +76,11 @@ Route::middleware(['auth:sanctum', 'universitas'])->post('/prodi/update/{id}',
 Route::middleware(['auth:sanctum', 'universitas'])->post('/prodi/destroy/{id}',
 [ProdiController::class,'destroy']);
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-   ])->group(function () {
-    Route::get('/dashboard', 
-    [DashboardController::class, 'index'])
-    ->name('dashboard');
-   });
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');});
 
 Route::middleware(['auth:sanctum'])->get('/pendaftaran/create', [PendaftaranController::class,'create']);
 Route::middleware(['auth:sanctum'])->post('/pendaftaran/store', [PendaftaranController::class,'store']);
+Route::middleware(['auth:sanctum', 'universitas'])->get('/pendaftaran',[PendaftaranController::class,'index']);
+Route::middleware(['auth:sanctum', 'universitas'])->post('/pendaftaran/terima/{id}', [PendaftaranController::class,'terima']);
+Route::middleware(['auth:sanctum', 'universitas'])->post('/pendaftaran/tolak/{id}', [PendaftaranController::class,'tolak']);
