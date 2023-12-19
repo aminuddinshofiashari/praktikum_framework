@@ -26,7 +26,7 @@ hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                         @forelse($prodi as $item)
                         <tr>
                             <td class="border px-6 py-4 ">
-                                {{ $item->fakultas->nama_fakultas }}
+                                {{ $item->fakultas->nama_fakultas ?? 'Data Fakultas Dihapus'}}
                             </td>
 
                             <td class="border px-6 py-4 ">

@@ -10,7 +10,7 @@
                 <div class="border rounded-b px-4
 py-3">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900
-dark:text-white">{{ $daftar}}</h5>
+dark:text-gray-700">{{ $daftar}}</h5>
                     <p class="font-normal text-gray-700 mb-4">
                         Jumlah CAMABA yang belum direspon.</p>
 
@@ -23,16 +23,15 @@ focus:outline-none focus:ring-blue-300">
                 </div>
             </div>
             <div class="mb-5 w-full flex">
-                <div class="border rounded-b px-4 w-1/2 bg-white mx-2
-py-3">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ number_format($terima) }}</h5>
+                <div class="border rounded-b px-4 w-1/2 bg-white mx-2 py-3">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-red-900 dark:text-gray-700">{{ number_format($terima) }}</h5>
                     <p class="font-normal text-gray-700">
                         CAMABA diterima dalam bulan terakhir</p>
                 </div>
                 <div class="border rounded-b px-4 w-1/2 bg-white mx-2
 py-3">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900
-dark:text-white">{{ number_format($tidak_diterima) }}</h5>
+dark:text-gray-700">{{ number_format($tidak_diterima) }}</h5>
                     <p class="font-normal text-gray-700">
                         CAMABA diterima dalam bulan terakhir</p>
                 </div>
